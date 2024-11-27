@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from app.core.config import settings
 from app.db.connection import connect_to_mongo, close_mongo_connection
 
-from app.routers import user, task  # Make sure 'user' is imported
+from app.routers import user, task, activity, auth # Make sure 'user' is imported
 
 app = FastAPI(
     title=settings.APP_NAME,
@@ -20,9 +20,11 @@ async def startup_db_client():
 async def shutdown_db_client():
     await close_mongo_connection()
 
-app.include_router(user.router)
 
-# app.include_router(task.router)
+app.include_router(auth.router)
+app.include_router(user.router)
+app.include_router(task.router)
+app.include_router(activity.router)
 
 @app.get("/", tags=["Root"])
 async def read_root():
