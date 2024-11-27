@@ -61,56 +61,34 @@ chat me on (mailto:mr.rifqi2000@gmail.com) for any information or discussion
 ## 📂 Project Structure
 ### Backend Structure
    ```
-backend/
-│
-├── app/
+app/
+├── __init__.py
+├── main.py
+├── core/
 │   ├── __init__.py
-│   ├── main.py               # File utama untuk menjalankan aplikasi FastAPI
-│   │
-│   ├── core/                 # Konfigurasi inti dan pengaturan
-│   │   ├── __init__.py
-│   │   ├── config.py         # Konfigurasi aplikasi (pengaturan, database URL, dll)
-│   │   ├── security.py       # Pengaturan keamanan (JWT, OAuth)
-│   │   └── utils.py          # Fungsi utilitas umum
-│   │
-│   ├── db/                   # Pengaturan dan model database
-│   │   ├── __init__.py
-│   │   ├── connection.py     # Koneksi database MongoDB dan pengaturan pool
-│   │   └── repository/       # Repositori untuk operasi database
-│   │       ├── __init__.py
-│   │       ├── user_repo.py  # Operasi CRUD untuk User
-│   │       ├── task_repo.py  # Operasi CRUD untuk Task
-│   │       └── activity_repo.py  # Operasi CRUD untuk Activity
-│   │
-│   ├── models/               # Deklarasi model Pydantic (schemas)
-│   │   ├── __init__.py
-│   │   ├── user.py           # Schema untuk User
-│   │   ├── task.py           # Schema untuk Task
-│   │   └── activity.py       # Schema untuk Activity
-│   │
-│   ├── routers/              # Routing endpoint API
-│   │   ├── __init__.py
-│   │   ├── auth.py           # Endpoint untuk autentikasi dan otorisasi
-│   │   ├── user.py           # Endpoint untuk operasi User
-│   │   ├── task.py           # Endpoint untuk operasi Task
-│   │   └── activity.py       # Endpoint untuk operasi Activity
-│   │
-│   ├── services/             # Logika bisnis aplikasi
-│   │   ├── __init__.py
-│   │   ├── user_service.py   # Logika bisnis terkait User
-│   │   ├── task_service.py   # Logika bisnis terkait Task
-│   │   └── activity_service.py # Logika bisnis terkait Activity
-│   │
-│   └── tests/                # Pengujian untuk setiap komponen
-│       ├── __init__.py
-│       ├── test_auth.py      # Pengujian untuk autentikasi
-│       ├── test_user.py      # Pengujian untuk operasi User
-│       ├── test_task.py      # Pengujian untuk operasi Task
-│       └── test_activity.py  # Pengujian untuk operasi Activity
-│
-├── .env                      # File environment untuk konfigurasi variabel (DB URL, JWT_SECRET, dll)
-├── requirements.txt          # Daftar dependensi Python
-└── Dockerfile                # Konfigurasi Docker untuk aplikasi
+│   ├── config.py
+│   ├── auth.py
+│   ├── security.py
+│   └── roles.py
+├── db/
+│   ├── __init__.py
+│   └── connection.py
+├── models/
+│   ├── __init__.py
+│   ├── pyobjectid.py
+│   ├── user.py
+│   ├── task.py
+│   └── activity.py
+├── routers/
+│   ├── __init__.py
+│   ├── user.py
+│   ├── task.py
+│   └── activity.py
+└── tests/
+    ├── __init__.py
+    ├── test_user.py
+    ├── test_task.py
+    └── test_activity.py
    ```
 
 ### Frontend Structure
